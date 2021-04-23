@@ -18,16 +18,14 @@ namespace TencentCloud\Apigateway\V20180808\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeServicesStatus请求参数结构体
+ * DescribeAPIDocs请求参数结构体
  *
  * @method integer getLimit() 获取返回数量，默认为 20，最大值为 100。
  * @method void setLimit(integer $Limit) 设置返回数量，默认为 20，最大值为 100。
  * @method integer getOffset() 获取偏移量，默认为 0。
  * @method void setOffset(integer $Offset) 设置偏移量，默认为 0。
- * @method array getFilters() 获取过滤条件。支持ServiceId、ServiceName、NotUsagePlanId、Environment、IpVersion。InstanceId
- * @method void setFilters(array $Filters) 设置过滤条件。支持ServiceId、ServiceName、NotUsagePlanId、Environment、IpVersion。InstanceId
  */
-class DescribeServicesStatusRequest extends AbstractModel
+class DescribeAPIDocsRequest extends AbstractModel
 {
     /**
      * @var integer 返回数量，默认为 20，最大值为 100。
@@ -40,14 +38,8 @@ class DescribeServicesStatusRequest extends AbstractModel
     public $Offset;
 
     /**
-     * @var array 过滤条件。支持ServiceId、ServiceName、NotUsagePlanId、Environment、IpVersion。InstanceId
-     */
-    public $Filters;
-
-    /**
      * @param integer $Limit 返回数量，默认为 20，最大值为 100。
      * @param integer $Offset 偏移量，默认为 0。
-     * @param array $Filters 过滤条件。支持ServiceId、ServiceName、NotUsagePlanId、Environment、IpVersion。InstanceId
      */
     function __construct()
     {
@@ -68,15 +60,6 @@ class DescribeServicesStatusRequest extends AbstractModel
 
         if (array_key_exists("Offset",$param) and $param["Offset"] !== null) {
             $this->Offset = $param["Offset"];
-        }
-
-        if (array_key_exists("Filters",$param) and $param["Filters"] !== null) {
-            $this->Filters = [];
-            foreach ($param["Filters"] as $key => $value){
-                $obj = new Filter();
-                $obj->deserialize($value);
-                array_push($this->Filters, $obj);
-            }
         }
     }
 }
